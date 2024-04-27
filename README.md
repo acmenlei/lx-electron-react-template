@@ -47,6 +47,7 @@ npm run dev
 │
 ├── public                                   同 Vite 模板的 public
 └── src                                      渲染进程源码、React代码
+    └── {pages}                              文件路由(你可以像nextjs一样使用路由)
 ```
 
 <!--
