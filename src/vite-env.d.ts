@@ -4,7 +4,4 @@
 interface Window {
   // expose in the `electron/preload/index.ts`
   ipcRenderer: import('electron').IpcRenderer
-  electronAPI: {
-    ipcEvents: import('electron-events').RendererIpcEvents
-  }
 }

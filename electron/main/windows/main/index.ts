@@ -1,8 +1,9 @@
 import { BrowserWindow, shell } from "electron";
-import { join } from "path"
-import { VITE_DEV_SERVER_URL, indexHtml, preload } from "../.."
-import { addWindow, handleIPC } from "../../utils/events";
+import { join } from "path";
+import { VITE_DEV_SERVER_URL, indexHtml, preload } from "../..";
+import { emiter, listener } from "../../utils/events";
 import { update } from "../../update";
+import { createNewWindow } from "../../utils/window";
 
 export let win: BrowserWindow | null = null;
 
@@ -18,8 +19,6 @@ export async function createWindow() {
       // contextIsolation: false,
     },
   });
-
-  addWindow("app", win);
 
   if (VITE_DEV_SERVER_URL) {
     // #298
@@ -44,12 +43,14 @@ export async function createWindow() {
   // Auto update
   update(win);
 }
-
+/**
+ * 回收该窗口
+ */
 export function recycleMainWindow() {
-  win = null
+  win = null;
 }
 
-// app窗口注册 open-win 的监听器
-handleIPC("app", "open-win", (args) => {
-  console.log(args)
+listener("open-win", (events, args) => {
+  emiter("test", 1);
+  createNewWindow(args[0]);
 });

@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-template",
+  "name": "lx-electron-react-template",
   "version": "1.0.0",
   "main": "dist-electron/main/index.js",
-  "description": "Electron Vite React boilerplate.",
+  "description": "Electron Vite React 快速开发模板.",
   "author": "lx",
   "license": "MIT",
   "private": true,
@@ -20,7 +20,6 @@
     "e2e": "playwright test"
   },
   "dependencies": {
-    "electron-events": "^0.3.2",
     "electron-updater": "^6.1.8"
   },
   "devDependencies": {

@@ -1,17 +1,17 @@
 import { BrowserWindow } from "electron";
-import { addWindow } from "./event";
 import { VITE_DEV_SERVER_URL, indexHtml, preload } from "..";
 
 export const createNewWindow = (name: string) => {
-  const childWindow = new BrowserWindow({
+  let childWindow = new BrowserWindow({
     webPreferences: {
       preload,
       nodeIntegration: true,
-      contextIsolation: false,
     },
   });
 
-  addWindow(name, childWindow);
+  childWindow.on("closed", () => {
+    childWindow = null as any;
+  })
 
   if (VITE_DEV_SERVER_URL) {
     childWindow.loadURL(`${VITE_DEV_SERVER_URL}#${name}`);
