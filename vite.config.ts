@@ -20,13 +20,6 @@ export default defineConfig(({ command }) => {
         "@": path.join(__dirname, "src"),
       },
     },
-    build: {
-      rollupOptions: {
-        external: (id) => {
-          return /^\@electron\/.*/.test(id);
-        },
-      },
-    },
     plugins: [
       react(),
       vitePluginPages({
