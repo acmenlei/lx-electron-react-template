@@ -20,6 +20,7 @@
     "e2e": "playwright test"
   },
   "dependencies": {
+    "electron-events": "^0.3.2",
     "electron-updater": "^6.1.8"
   },
   "devDependencies": {

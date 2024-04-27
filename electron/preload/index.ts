@@ -1,5 +1,13 @@
 import { ipcRenderer, contextBridge } from 'electron'
 
+import { useEvents } from 'electron-events';
+
+const ipcEvents = useEvents();
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  ipcEvents
+});
+
 // --------- Expose some API to the Renderer process ---------
 contextBridge.exposeInMainWorld('ipcRenderer', {
   on(...args: Parameters<typeof ipcRenderer.on>) {
