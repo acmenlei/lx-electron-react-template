@@ -15,10 +15,10 @@
 
 ```sh
 # clone the project
-git clone https://github.com/electron-vite/electron-vite-react.git
+git clone https://github.com/acmenlei/lx-electron-react-template.git
 
 # enter the project directory
-cd electron-vite-react
+cd lx-electron-react-template
 
 # install dependency
 npm install
