@@ -1,15 +1,15 @@
 import { BrowserWindow, shell } from "electron";
 import { join } from "path";
-import { VITE_DEV_SERVER_URL, indexHtml, preload } from "../..";
-import { emiter, listener } from "../../utils/events";
-import { update } from "../../update";
-import { createNewWindow } from "../../utils/window";
+import { update } from "@electron/main/update";
+import { emiter, listener } from "@electron/main/utils/events";
+import { createNewWindow } from "@electron/main/utils/window";
+import { VITE_DEV_SERVER_URL, indexHtml, preload } from "@electron/main";
 
 export let win: BrowserWindow | null = null;
 
 export async function createWindow() {
   win = new BrowserWindow({
-    title: "Main window",
+    title: "Electron+React快速开发模板",
     icon: join(process.env.VITE_PUBLIC, "favicon.ico"),
     webPreferences: {
       preload,
@@ -40,7 +40,7 @@ export async function createWindow() {
     return { action: "deny" };
   });
 
-  // Auto update
+  // 自动更新配置
   update(win);
 }
 /**
