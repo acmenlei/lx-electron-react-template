@@ -20,7 +20,10 @@
     "e2e": "playwright test"
   },
   "dependencies": {
-    "electron-updater": "^6.1.8"
+    "electron-updater": "^6.1.8",
+    "electron-store": "^8.2.0",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@playwright/test": "^1.42.1",

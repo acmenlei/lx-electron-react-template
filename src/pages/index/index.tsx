@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import viteLogo from "@/assets/logo-vite.svg";
-import { emiter, listener } from "@/utils/events";
+import { emiter } from "@/utils/events";
 
 type HomePageProps = {};
 
 export default function HomePage(props: HomePageProps) {
   
-  listener('test').then(console.log)
-
   return (
     <div className="flex justify-center items-center flex-col h-screen gap-5 px-2">
       <img src={viteLogo} alt="" />
@@ -21,7 +19,7 @@ export default function HomePage(props: HomePageProps) {
         </Link>
       </div>
       <button onClick={() => emiter('open-win', 'settings')}>
-        给主进程发送数据
+        打开新窗口
       </button>
     </div>
   );

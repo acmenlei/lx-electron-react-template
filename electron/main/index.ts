@@ -4,6 +4,7 @@ import path from "node:path";
 import os from "node:os";
 
 import { createWindow, recycleMainWindow, win } from "./windows/main";
+import { checkDataBaseVersion } from "./db";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -30,11 +31,13 @@ if (!app.requestSingleInstanceLock()) {
   process.exit(0);
 }
 // 当应用准备好的时候开始创建窗口
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  checkDataBaseVersion().then(createWindow);
+});
 
 app.on("window-all-closed", () => {
   // 回收主窗口
-  recycleMainWindow()
+  recycleMainWindow();
   if (process.platform !== "darwin") app.quit();
 });
 
