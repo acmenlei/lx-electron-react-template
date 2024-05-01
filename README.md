@@ -2,7 +2,7 @@
 
 ## 概述
 
-📦 开箱即用  
+📦 内部已集成 sqlite + sequelize(ORM) + electron-store 开箱即用
 ⚡️ 约定式文件路由  
 🎯 基于官方的 [template-react-ts](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts), 低侵入性  
 🌱 结构清晰，可塑性强  
